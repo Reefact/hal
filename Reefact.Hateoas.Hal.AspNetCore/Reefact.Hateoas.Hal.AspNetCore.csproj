@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFrameworks>net6.0;net7.0;net8.0</TargetFrameworks>
+		<AssemblyName>Reefact.Hateoas.Hal.AspNetCore</AssemblyName>
+		<PublicSign Condition=" '$(OS)' != 'Windows_NT' ">true</PublicSign>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<PackageId>Reefact.Hateoas.Hal.AspNetCore</PackageId>
+		<PackageTags>hateoas;hal;hypertext-application-language</PackageTags>
+		<PackageLicenseUrl></PackageLicenseUrl>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<FrameworkReference Include="Microsoft.AspNetCore.App" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Include="..\LICENSE" Link="LICENSE">
+			<Pack>True</Pack>
+			<PackagePath></PackagePath>
+		</None>
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\Reefact.Hateoas.Hal\Reefact.Hateoas.Hal.csproj" />
+	</ItemGroup>
+
+</Project>

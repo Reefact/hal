@@ -1,5 +1,5 @@
-# HAL
-The C#/.NET Core implementation of Hypertext Application Language (HAL) specification. This project provides the full support of JSON Hypertext Application Language which is described [here](https://tools.ietf.org/html/draft-kelly-json-hal-08).
+# Reefact.Hateoas.Hal
+This library is a C#/.NET Core implementation of Hypertext Application Language (HAL) specification. This project provides the full support of JSON Hypertext Application Language which is described [here](https://tools.ietf.org/html/draft-kelly-json-hal-08).
 
 [![Build status](https://dev.azure.com/sunnycoding/HAL/_apis/build/status/HAL-CI)](https://dev.azure.com/sunnycoding/HAL/_build/latest?definitionId=11)
 
@@ -156,11 +156,11 @@ var hal = resource.ToString();
 ```
 
 ## ASP.NET Core Integration
-HAL supports ASP.NET Core integration, which allows the `application/hal+json` content type to be returned by your API server.
+The library supports ASP.NET Core integration, which allows the `application/hal+json` content type to be returned by your API server.
 
-To add HAL support to your ASP.NET Core application, firstly add the `Hal.AspNetCoreIntegration` NuGet package:
+To add HAL support to your ASP.NET Core application, firstly add the `Reefact.Hateoas.Hal.AspNetCoreIntegration` NuGet package:
 ```
-dotnet add package Hal.AspNetCoreIntegration
+dotnet add package Reefact.Hateoas.Hal.AspNetCoreIntegration
 ```
 
 And decorate your controller with the `SupportsHalAttribute` attribute:
@@ -303,7 +303,7 @@ http {
 ```
 
 ### Running the Out-of-the-Box Example
-To debug the out-of-the-box example, in Visual Studio 2022, open `hal.sln` solution and set the `Hal.Example` project as the default startup project, then hit `F5` to debug.
+To debug the out-of-the-box example, in Visual Studio 2022, open `Reefact.Hateoas.Hal.sln` solution and set the `Reefact.Hateoas.Hal.Example` project as the default startup project, then hit `F5` to debug.
 
 To learn how to build with docker and run the docker container behind the nginx proxy, use the following commands to build and run:
 ```bash

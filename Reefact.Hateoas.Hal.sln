@@ -1,0 +1,67 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32811.315
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{7CAA577D-160E-4EB9-814C-2F2AB812A469}"
+	ProjectSection(SolutionItems) = preProject
+		.dockerignore = .dockerignore
+		.gitignore = .gitignore
+		Directory.Build.targets = Directory.Build.targets
+		hal.snk = hal.snk
+		LICENSE = LICENSE
+		postbuild.ps1 = postbuild.ps1
+		prebuild.ps1 = prebuild.ps1
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Reefact.Hateoas.Hal", "Reefact.Hateoas.Hal\Reefact.Hateoas.Hal.csproj", "{3FE91D99-C111-4460-807A-3D8CAF6FDC50}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Reefact.Hateoas.Hal.UnitTests", "Reefact.Hateoas.Hal.UnitTests\Reefact.Hateoas.Hal.UnitTests.csproj", "{FE4B2D55-41DE-4AFA-97F6-B0FDB5A4EB20}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Reefact.Hateoas.Hal.AspNetCore", "Reefact.Hateoas.Hal.AspNetCore\Reefact.Hateoas.Hal.AspNetCore.csproj", "{13702928-E7F2-47BF-8C0B-F20526795B08}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sources", "Sources", "{6ACBB04E-BDD2-4190-ABE4-133ACCCF5BFE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{8A21B456-4584-452B-9D04-B70166C1C8DF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Examples", "Examples", "{5354B74B-C9E2-4E9B-B8D2-87B1916FB464}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Reefact.Hateoas.Hal.Example", "Reefact.Hateoas.Hal.Example\Reefact.Hateoas.Hal.Example.csproj", "{A9EBDFEE-4D8F-4A61-BF08-830C6B174C43}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3FE91D99-C111-4460-807A-3D8CAF6FDC50}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3FE91D99-C111-4460-807A-3D8CAF6FDC50}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3FE91D99-C111-4460-807A-3D8CAF6FDC50}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3FE91D99-C111-4460-807A-3D8CAF6FDC50}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE4B2D55-41DE-4AFA-97F6-B0FDB5A4EB20}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE4B2D55-41DE-4AFA-97F6-B0FDB5A4EB20}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE4B2D55-41DE-4AFA-97F6-B0FDB5A4EB20}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE4B2D55-41DE-4AFA-97F6-B0FDB5A4EB20}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13702928-E7F2-47BF-8C0B-F20526795B08}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13702928-E7F2-47BF-8C0B-F20526795B08}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13702928-E7F2-47BF-8C0B-F20526795B08}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13702928-E7F2-47BF-8C0B-F20526795B08}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A9EBDFEE-4D8F-4A61-BF08-830C6B174C43}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9EBDFEE-4D8F-4A61-BF08-830C6B174C43}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9EBDFEE-4D8F-4A61-BF08-830C6B174C43}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9EBDFEE-4D8F-4A61-BF08-830C6B174C43}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3FE91D99-C111-4460-807A-3D8CAF6FDC50} = {6ACBB04E-BDD2-4190-ABE4-133ACCCF5BFE}
+		{FE4B2D55-41DE-4AFA-97F6-B0FDB5A4EB20} = {8A21B456-4584-452B-9D04-B70166C1C8DF}
+		{13702928-E7F2-47BF-8C0B-F20526795B08} = {6ACBB04E-BDD2-4190-ABE4-133ACCCF5BFE}
+		{A9EBDFEE-4D8F-4A61-BF08-830C6B174C43} = {5354B74B-C9E2-4E9B-B8D2-87B1916FB464}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {79C4D19A-DBFE-4028-946A-1C1098EFDE89}
+	EndGlobalSection
+EndGlobal
