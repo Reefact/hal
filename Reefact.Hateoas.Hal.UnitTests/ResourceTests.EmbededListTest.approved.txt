@@ -1,0 +1,24 @@
+﻿{
+  "total": 100.0,
+  "description": "test",
+  "_embedded": {
+    "List": [
+      {
+        "description": "item 1"
+      },
+      {
+        "description": "item 2"
+      },
+      {
+        "description": "item 3"
+      },
+      {
+        "description": "item 4"
+      }
+    ],
+    "AnotherResource": {
+      "code": "C001",
+      "value": 10
+    }
+  }
+}

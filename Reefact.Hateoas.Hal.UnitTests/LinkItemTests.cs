@@ -1,20 +1,28 @@
 ﻿#region Usings declarations
 
+using ApprovalTests;
+using ApprovalTests.Reporters;
+
 using Xunit;
 
 #endregion
 
 namespace Reefact.Hateoas.Hal.UnitTests {
 
+    [UseReporter(typeof(BeyondCompareReporter))]
     public class LinkItemTests {
 
         [Fact]
         public void LinkItemToStringTest() {
-            LinkItem linkItem = new LinkItem("/orders");
+            // Setup
+            LinkItem linkItem = new("/orders");
             linkItem.Name      = "ea";
             linkItem.Templated = true;
             linkItem.AddProperty("age", 10);
-            string str = linkItem.ToString();
+            // Exercise
+            string hal = linkItem.ToString();
+            // Verify
+            Approvals.Verify(hal);
         }
 
     }

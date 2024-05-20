@@ -1,0 +1,7 @@
+﻿"curies": [
+  {
+    "name": "ea",
+    "href": "http://example.com/docs/rels/{rel}",
+    "templated": true
+  }
+]

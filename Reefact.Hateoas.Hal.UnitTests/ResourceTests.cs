@@ -1,9 +1,7 @@
 ﻿#region Usings declarations
 
-using System.Collections.Generic;
-using System.Linq;
-
-using Newtonsoft.Json.Linq;
+using ApprovalTests;
+using ApprovalTests.Reporters;
 
 using Xunit;
 
@@ -11,11 +9,12 @@ using Xunit;
 
 namespace Reefact.Hateoas.Hal.UnitTests {
 
+    [UseReporter(typeof(BeyondCompareReporter))]
     public class ResourceTests {
 
         [Fact]
         public void Example() {
-            LinkCollection links = new LinkCollection {
+            LinkCollection links = new() {
                 new Link("self") { Items = new LinkItemCollection { new LinkItem("/orders") } },
                 new Link("curies") {
                     Items = new LinkItemCollection(true) {
@@ -28,7 +27,7 @@ namespace Reefact.Hateoas.Hal.UnitTests {
                 }
             };
 
-            EmbeddedResource embedded = new EmbeddedResource {
+            EmbeddedResource embedded = new() {
                 Name = "ea:order",
                 Resources = new ResourceCollection {
                     new Resource(new { total = 30.00F, currency = "USD", status = "shipped" }) {
@@ -60,33 +59,34 @@ namespace Reefact.Hateoas.Hal.UnitTests {
                 }
             };
 
-            Resource resource = new Resource(new { currentlyProcessing = 14, shippedToday = 20 }) {
+            Resource resource = new(new { currentlyProcessing = 14, shippedToday = 20 }) {
                 Links             = links,
                 EmbeddedResources = new EmbeddedResourceCollection { embedded }
             };
 
             string hal = resource.ToString();
+
+            Approvals.Verify(hal);
         }
 
         [Fact]
         public void EmbededListTest() {
-            Resource halResoruce = new Resource(new { total = 100f, description = "test" });
-
-            EmbeddedResourceCollection embeddedResources   = new EmbeddedResourceCollection();
-            ResourceCollection         resourcesCollection = new ResourceCollection();
+            Resource                   resource            = new(new { total = 100f, description = "test" });
+            EmbeddedResourceCollection embeddedResources   = new();
+            ResourceCollection         resourcesCollection = new();
             resourcesCollection.Add(new Resource(new { description = "item 1" }));
             resourcesCollection.Add(new Resource(new { description = "item 2" }));
             resourcesCollection.Add(new Resource(new { description = "item 3" }));
             resourcesCollection.Add(new Resource(new { description = "item 4" }));
 
-            Resource anotherResource = new Resource(new { code = "C001", value = 10 });
+            Resource anotherResource = new(new { code = "C001", value = 10 });
 
-            EmbeddedResource embeddedResourceList = new EmbeddedResource {
+            EmbeddedResource embeddedResourceList = new() {
                 Name                     = "List",
                 Resources                = resourcesCollection,
                 EnforcingArrayConverting = true
             };
-            EmbeddedResource anotherEmbeddedResource = new EmbeddedResource {
+            EmbeddedResource anotherEmbeddedResource = new() {
                 Name      = "AnotherResource",
                 Resources = new ResourceCollection { anotherResource }
             };
@@ -94,34 +94,28 @@ namespace Reefact.Hateoas.Hal.UnitTests {
             embeddedResources.Add(embeddedResourceList);
             embeddedResources.Add(anotherEmbeddedResource);
 
-            halResoruce.EmbeddedResources = embeddedResources;
+            resource.EmbeddedResources = embeddedResources;
 
-            IDictionary<string, JToken> result = JObject.Parse(halResoruce.ToString());
+            string hal = resource.ToString();
 
-            Assert.True(result.ContainsKey("total"));
-            Assert.True(result.ContainsKey("description"));
-            Assert.Equal(4, result["_embedded"]["List"].Children().Count());
-            Assert.Equal("item 1", result["_embedded"]["List"].Children().First()["description"].ToString());
-            Assert.Equal("C001", result["_embedded"]["AnotherResource"]["code"].ToString());
-            Assert.Equal("10", result["_embedded"]["AnotherResource"]["value"].ToString());
+            Approvals.Verify(hal);
         }
 
         [Fact]
         public void EmbededListTestWithOnlyOneElement() {
-            Resource halResoruce = new Resource(new { total = 100f, description = "test" });
-
-            EmbeddedResourceCollection embeddedResources   = new EmbeddedResourceCollection();
-            ResourceCollection         resourcesCollection = new ResourceCollection();
+            Resource                   resource            = new(new { total = 100f, description = "test" });
+            EmbeddedResourceCollection embeddedResources   = new();
+            ResourceCollection         resourcesCollection = new();
             resourcesCollection.Add(new Resource(new { description = "item 1" }));
 
-            Resource anotherResource = new Resource(new { code = "C001", value = 10 });
+            Resource anotherResource = new(new { code = "C001", value = 10 });
 
-            EmbeddedResource embeddedResourceList = new EmbeddedResource {
+            EmbeddedResource embeddedResourceList = new() {
                 Name                     = "List",
                 Resources                = resourcesCollection,
                 EnforcingArrayConverting = true
             };
-            EmbeddedResource anotherEmbeddedResource = new EmbeddedResource {
+            EmbeddedResource anotherEmbeddedResource = new() {
                 Name      = "AnotherResource",
                 Resources = new ResourceCollection { anotherResource }
             };
@@ -129,16 +123,11 @@ namespace Reefact.Hateoas.Hal.UnitTests {
             embeddedResources.Add(embeddedResourceList);
             embeddedResources.Add(anotherEmbeddedResource);
 
-            halResoruce.EmbeddedResources = embeddedResources;
+            resource.EmbeddedResources = embeddedResources;
 
-            IDictionary<string, JToken> result = JObject.Parse(halResoruce.ToString());
+            string hal = resource.ToString();
 
-            Assert.True(result.ContainsKey("total"));
-            Assert.True(result.ContainsKey("description"));
-            Assert.Single(result["_embedded"]["List"].Children());
-            Assert.Equal("item 1", result["_embedded"]["List"].Children().First()["description"].ToString());
-            Assert.Equal("C001", result["_embedded"]["AnotherResource"]["code"].ToString());
-            Assert.Equal("10", result["_embedded"]["AnotherResource"]["value"].ToString());
+            Approvals.Verify(hal);
         }
 
     }

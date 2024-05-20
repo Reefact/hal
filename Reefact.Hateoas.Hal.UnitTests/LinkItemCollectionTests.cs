@@ -10,12 +10,12 @@ namespace Reefact.Hateoas.Hal.UnitTests {
 
         [Fact]
         public void LinkItemCollectionToStringTest() {
-            LinkItem linkItem = new LinkItem("/orders");
+            LinkItem linkItem = new("/orders");
             linkItem.Name      = "ea";
             linkItem.Templated = true;
             linkItem.AddProperty("age", 10);
 
-            LinkItemCollection collection = new LinkItemCollection {
+            LinkItemCollection collection = new() {
                 linkItem
             };
 
@@ -24,14 +24,14 @@ namespace Reefact.Hateoas.Hal.UnitTests {
 
         [Fact]
         public void LinkItemCollectionWithMultipleItemsToStringTest() {
-            LinkItem linkItem1 = new LinkItem("/orders");
+            LinkItem linkItem1 = new("/orders");
             linkItem1.Name      = "ea";
             linkItem1.Templated = true;
             linkItem1.AddProperty("age", 10);
 
-            LinkItem linkItem2 = new LinkItem("/customers");
+            LinkItem linkItem2 = new("/customers");
 
-            LinkItemCollection collection = new LinkItemCollection {
+            LinkItemCollection collection = new() {
                 linkItem1, linkItem2
             };
 

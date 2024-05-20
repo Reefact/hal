@@ -1,0 +1,9 @@
+﻿{
+  "records": 1,
+  "_embedded": {
+    "values": [
+      "value1",
+      "value2"
+    ]
+  }
+}
