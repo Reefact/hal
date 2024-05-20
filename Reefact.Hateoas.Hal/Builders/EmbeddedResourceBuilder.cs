@@ -8,7 +8,7 @@ namespace Reefact.Hateoas.Hal.Builders {
 
     /// <summary>
     ///     Represents that the implemented classes are HAL resource builders
-    ///     that will initialize the <see cref="IEmbeddedResource" /> collection
+    ///     that will initialize the <see cref="EmbeddedResource" /> collection
     ///     on the building resource.
     /// </summary>
     /// <seealso cref="Hal.Builders.IBuilder" />
@@ -75,7 +75,7 @@ namespace Reefact.Hateoas.Hal.Builders {
                 resource.EmbeddedResources = new EmbeddedResourceCollection(enforcingArrayConverting);
             }
 
-            IEmbeddedResource? embeddedResource = resource.EmbeddedResources.FirstOrDefault(x => !string.IsNullOrEmpty(x.Name) && x.Name!.Equals(Name));
+            EmbeddedResource? embeddedResource = resource.EmbeddedResources.FirstOrDefault(x => !string.IsNullOrEmpty(x.Name) && x.Name!.Equals(Name));
             if (embeddedResource == null) {
                 embeddedResource = new EmbeddedResource {
                     Name = Name

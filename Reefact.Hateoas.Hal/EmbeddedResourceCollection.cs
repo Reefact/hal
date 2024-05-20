@@ -8,13 +8,13 @@ using System.Collections.Generic;
 namespace Reefact.Hateoas.Hal {
 
     /// <summary>
-    ///     Represents the list of <see cref="IEmbeddedResource" /> objects.
+    ///     Represents the list of <see cref="EmbeddedResource" /> objects.
     /// </summary>
-    public sealed class EmbeddedResourceCollection : ICollection<IEmbeddedResource> {
+    public sealed class EmbeddedResourceCollection : ICollection<EmbeddedResource> {
 
         #region Fields declarations
 
-        private readonly List<IEmbeddedResource> items = new();
+        private readonly List<EmbeddedResource> items = new();
 
         #endregion
 
@@ -53,7 +53,7 @@ namespace Reefact.Hateoas.Hal {
         ///     Adds an item to the <see cref="T:System.Collections.Generic.ICollection`1" />.
         /// </summary>
         /// <param name="item">The object to add to the <see cref="T:System.Collections.Generic.ICollection`1" />.</param>
-        public void Add(IEmbeddedResource item) {
+        public void Add(EmbeddedResource item) {
             items.Add(item);
         }
 
@@ -72,7 +72,7 @@ namespace Reefact.Hateoas.Hal {
         ///     true if <paramref name="item" /> is found in the <see cref="T:System.Collections.Generic.ICollection`1" />;
         ///     otherwise, false.
         /// </returns>
-        public bool Contains(IEmbeddedResource item) {
+        public bool Contains(EmbeddedResource item) {
             return items.Contains(item);
         }
 
@@ -86,7 +86,7 @@ namespace Reefact.Hateoas.Hal {
         ///     zero-based indexing.
         /// </param>
         /// <param name="arrayIndex">The zero-based index in <paramref name="array" /> at which copying begins.</param>
-        public void CopyTo(IEmbeddedResource[] array, int arrayIndex) {
+        public void CopyTo(EmbeddedResource[] array, int arrayIndex) {
             items.CopyTo(array, arrayIndex);
         }
 
@@ -96,7 +96,7 @@ namespace Reefact.Hateoas.Hal {
         /// <returns>
         ///     An enumerator that can be used to iterate through the collection.
         /// </returns>
-        public IEnumerator<IEmbeddedResource> GetEnumerator() {
+        public IEnumerator<EmbeddedResource> GetEnumerator() {
             return items.GetEnumerator();
         }
 
@@ -110,7 +110,7 @@ namespace Reefact.Hateoas.Hal {
         ///     <see cref="T:System.Collections.Generic.ICollection`1" />; otherwise, false. This method also returns false if
         ///     <paramref name="item" /> is not found in the original <see cref="T:System.Collections.Generic.ICollection`1" />.
         /// </returns>
-        public bool Remove(IEmbeddedResource item) {
+        public bool Remove(EmbeddedResource item) {
             return items.Remove(item);
         }
 

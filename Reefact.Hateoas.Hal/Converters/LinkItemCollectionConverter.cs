@@ -69,7 +69,7 @@ namespace Reefact.Hateoas.Hal.Converters {
                 }
             } else {
                 writer.WriteStartArray();
-                foreach (ILinkItem? item in collection) {
+                foreach (LinkItem? item in collection) {
                     serializer.Serialize(writer, item);
                 }
                 writer.WriteEndArray();

@@ -13,7 +13,7 @@ namespace Reefact.Hateoas.Hal {
     /// <summary>
     ///     Represents the link item of a link in the HAL.
     /// </summary>
-    public sealed class LinkItem : ILinkItem {
+    public sealed class LinkItem {
 
         #region Fields declarations
 

@@ -3,8 +3,7 @@
     /// <summary>
     ///     Represents the embedded resource in HAL.
     /// </summary>
-    /// <seealso cref="Hal.IEmbeddedResource" />
-    public sealed class EmbeddedResource : IEmbeddedResource {
+    public sealed class EmbeddedResource {
 
         #region Constructors declarations
 

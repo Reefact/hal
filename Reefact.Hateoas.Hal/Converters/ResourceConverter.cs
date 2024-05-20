@@ -84,7 +84,7 @@ namespace Reefact.Hateoas.Hal.Converters {
             if (resource.EmbeddedResources != null && resource.EmbeddedResources.Count() > 0) {
                 writer.WritePropertyName("_embedded");
                 writer.WriteStartObject();
-                foreach (IEmbeddedResource? embeddedResource in resource.EmbeddedResources) {
+                foreach (EmbeddedResource? embeddedResource in resource.EmbeddedResources) {
                     if (!string.IsNullOrEmpty(embeddedResource.Name)) {
                         writer.WritePropertyName(embeddedResource.Name!);
 
@@ -93,12 +93,12 @@ namespace Reefact.Hateoas.Hal.Converters {
                             !embeddedResource.EnforcingArrayConverting           &&
                             embeddedResource.Resources.Count == 1) {
                             //writer.WriteStartObject();
-                            IResource? first = embeddedResource.Resources.First();
+                            Resource? first = embeddedResource.Resources.First();
                             WriteJson(writer, first, serializer);
                             //writer.WriteEndObject();
                         } else {
                             writer.WriteStartArray();
-                            foreach (IResource? current in embeddedResource.Resources) {
+                            foreach (Resource? current in embeddedResource.Resources) {
                                 WriteJson(writer, current, serializer);
                             }
                             writer.WriteEndArray();

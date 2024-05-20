@@ -8,39 +8,11 @@ using System.Linq;
 namespace Reefact.Hateoas.Hal.Builders {
 
     /// <summary>
-    ///     Represents that the implemented classes are the builders
-    ///     that are responsible for adding the <see cref="ILinkItem" />
-    ///     objects to the HAL resource.
-    /// </summary>
-    /// <seealso cref="Hal.Builders.IBuilder" />
-    public interface ILinkItemBuilder : IBuilder {
-
-        /// <summary>
-        ///     Gets the relation of the resource location.
-        /// </summary>
-        /// <value>
-        ///     The relation of the resource location.
-        /// </value>
-        string Rel { get; }
-
-        /// <summary>
-        ///     Gets a value indicating whether the generated Json representation should be in an array
-        ///     format, even if the number of items is only one.
-        /// </summary>
-        /// <value>
-        ///     <c>true</c> if the generated Json representation should be in an array
-        ///     format; otherwise, <c>false</c>.
-        /// </value>
-        bool EnforcingArrayConverting { get; }
-
-    }
-
-    /// <summary>
-    ///     Represents an internal implementation of <see cref="ILinkItemBuilder" />.
+    ///     Represents an internal implementation of <see cref="LinkItemBuilder" />.
     /// </summary>
     /// <seealso cref="Hal.Builders.Builder" />
-    /// <seealso cref="Hal.Builders.ILinkItemBuilder" />
-    internal sealed class LinkItemBuilder : Builder, ILinkItemBuilder {
+    /// <seealso cref="Hal.Builders.LinkItemBuilder" />
+    public sealed class LinkItemBuilder : Builder {
 
         #region Fields declarations
 
@@ -131,7 +103,7 @@ namespace Reefact.Hateoas.Hal.Builders {
         ///     The <see cref="Resource" /> instance to be built.
         /// </returns>
         protected override Resource DoBuild(Resource resource) {
-            ILink? link = resource.Links?.FirstOrDefault(x => x.Rel.Equals(Rel));
+            Link? link = resource.Links?.FirstOrDefault(x => x.Rel.Equals(Rel));
             if (link == null) {
                 link = new Link(Rel);
                 resource.Links?.Add(link);

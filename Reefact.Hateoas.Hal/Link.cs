@@ -13,8 +13,7 @@ namespace Reefact.Hateoas.Hal {
     /// <summary>
     ///     Represents the link in the HAL.
     /// </summary>
-    /// <seealso cref="Hal.ILink" />
-    public sealed class Link : ILink {
+    public sealed class Link {
 
         #region Constructors declarations
 

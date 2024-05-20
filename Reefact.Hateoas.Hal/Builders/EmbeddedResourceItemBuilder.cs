@@ -68,7 +68,7 @@ namespace Reefact.Hateoas.Hal.Builders {
         ///     The <see cref="Resource" /> instance to be built.
         /// </returns>
         protected override Resource DoBuild(Resource resource) {
-            IEmbeddedResource? embeddedResource = resource.EmbeddedResources?.FirstOrDefault(x => !string.IsNullOrEmpty(x.Name) && x.Name!.Equals(Name));
+            EmbeddedResource? embeddedResource = resource.EmbeddedResources?.FirstOrDefault(x => !string.IsNullOrEmpty(x.Name) && x.Name!.Equals(Name));
             if (embeddedResource == null) {
                 embeddedResource = new EmbeddedResource {
                     Name = Name,

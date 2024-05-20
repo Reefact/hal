@@ -60,7 +60,7 @@ namespace Reefact.Hateoas.Hal.UnitTests {
         public void BuilderTest3() {
             // Setup
             string state = "abc";
-            IResourceStateBuilder builder = new ResourceBuilder()
+            ResourceStateBuilder builder = new ResourceBuilder()
                .WithState(state);
             // Exercise
             string hal = builder.Build().ToString();

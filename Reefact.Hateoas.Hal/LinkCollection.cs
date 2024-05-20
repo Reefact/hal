@@ -14,11 +14,11 @@ namespace Reefact.Hateoas.Hal {
     /// <summary>
     ///     Represents a collection of links.
     /// </summary>
-    public sealed class LinkCollection : ICollection<ILink> {
+    public sealed class LinkCollection : ICollection<Link> {
 
         #region Fields declarations
 
-        private readonly List<ILink> links = new();
+        private readonly List<Link> links = new();
 
         #endregion
 
@@ -45,7 +45,7 @@ namespace Reefact.Hateoas.Hal {
         ///     Adds an item to the <see cref="T:System.Collections.Generic.ICollection`1" />.
         /// </summary>
         /// <param name="item">The object to add to the <see cref="T:System.Collections.Generic.ICollection`1" />.</param>
-        public void Add(ILink item) {
+        public void Add(Link item) {
             links.Add(item);
         }
 
@@ -64,7 +64,7 @@ namespace Reefact.Hateoas.Hal {
         ///     true if <paramref name="item" /> is found in the <see cref="T:System.Collections.Generic.ICollection`1" />;
         ///     otherwise, false.
         /// </returns>
-        public bool Contains(ILink item) {
+        public bool Contains(Link item) {
             return links.Contains(item);
         }
 
@@ -78,7 +78,7 @@ namespace Reefact.Hateoas.Hal {
         ///     zero-based indexing.
         /// </param>
         /// <param name="arrayIndex">The zero-based index in <paramref name="array" /> at which copying begins.</param>
-        public void CopyTo(ILink[] array, int arrayIndex) {
+        public void CopyTo(Link[] array, int arrayIndex) {
             links.CopyTo(array, arrayIndex);
         }
 
@@ -88,7 +88,7 @@ namespace Reefact.Hateoas.Hal {
         /// <returns>
         ///     An enumerator that can be used to iterate through the collection.
         /// </returns>
-        public IEnumerator<ILink> GetEnumerator() {
+        public IEnumerator<Link> GetEnumerator() {
             return links.GetEnumerator();
         }
 
@@ -102,7 +102,7 @@ namespace Reefact.Hateoas.Hal {
         ///     <see cref="T:System.Collections.Generic.ICollection`1" />; otherwise, false. This method also returns false if
         ///     <paramref name="item" /> is not found in the original <see cref="T:System.Collections.Generic.ICollection`1" />.
         /// </returns>
-        public bool Remove(ILink item) {
+        public bool Remove(Link item) {
             return links.Remove(item);
         }
 

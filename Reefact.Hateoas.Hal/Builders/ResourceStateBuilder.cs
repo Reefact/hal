@@ -1,18 +1,11 @@
 ﻿namespace Reefact.Hateoas.Hal.Builders {
 
     /// <summary>
-    ///     Represents that the implemented classes are HAL resource builders
-    ///     that
-    /// </summary>
-    /// <seealso cref="Hal.Builders.IBuilder" />
-    public interface IResourceStateBuilder : IBuilder { }
-
-    /// <summary>
-    ///     Represents an internal implementation of <see cref="IResourceStateBuilder" /> interface.
+    ///     Represents an internal implementation of <see cref="ResourceStateBuilder" /> interface.
     /// </summary>
     /// <seealso cref="Hal.Builders.Builder" />
-    /// <seealso cref="Hal.Builders.IResourceStateBuilder" />
-    internal sealed class ResourceStateBuilder : Builder, IResourceStateBuilder {
+    /// <seealso cref="Hal.Builders.ResourceStateBuilder" />
+    public sealed class ResourceStateBuilder : Builder {
 
         #region Fields declarations
 

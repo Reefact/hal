@@ -142,7 +142,7 @@ namespace Reefact.Hateoas.Hal.AspNetCore {
                     long         totalElements = state.TotalRecords;
                     long         totalPages    = state.TotalPages;
 
-                    ILinkItemBuilder linkItemBuilder = new ResourceBuilder()
+                    LinkItemBuilder linkItemBuilder = new ResourceBuilder()
                                                       .WithState(new { page = new { number, size, totalElements, totalPages } })
                                                       .AddSelfLink().WithLinkItem(selfLinkItem);
 

@@ -12,13 +12,13 @@ using Reefact.Hateoas.Hal.Converters;
 namespace Reefact.Hateoas.Hal {
 
     /// <summary>
-    ///     Represents a collection of <see cref="ILinkItem" /> objects.
+    ///     Represents a collection of <see cref="LinkItem" /> objects.
     /// </summary>
-    public sealed class LinkItemCollection : ICollection<ILinkItem> {
+    public sealed class LinkItemCollection : ICollection<LinkItem> {
 
         #region Fields declarations
 
-        private readonly List<ILinkItem> items = new();
+        private readonly List<LinkItem> items = new();
 
         #endregion
 
@@ -57,7 +57,7 @@ namespace Reefact.Hateoas.Hal {
         ///     Adds an item to the <see cref="T:System.Collections.Generic.ICollection`1" />.
         /// </summary>
         /// <param name="item">The object to add to the <see cref="T:System.Collections.Generic.ICollection`1" />.</param>
-        public void Add(ILinkItem item) {
+        public void Add(LinkItem item) {
             items.Add(item);
         }
 
@@ -76,7 +76,7 @@ namespace Reefact.Hateoas.Hal {
         ///     true if <paramref name="item" /> is found in the <see cref="T:System.Collections.Generic.ICollection`1" />;
         ///     otherwise, false.
         /// </returns>
-        public bool Contains(ILinkItem item) {
+        public bool Contains(LinkItem item) {
             return items.Contains(item);
         }
 
@@ -90,7 +90,7 @@ namespace Reefact.Hateoas.Hal {
         ///     zero-based indexing.
         /// </param>
         /// <param name="arrayIndex">The zero-based index in <paramref name="array" /> at which copying begins.</param>
-        public void CopyTo(ILinkItem[] array, int arrayIndex) {
+        public void CopyTo(LinkItem[] array, int arrayIndex) {
             items.CopyTo(array, arrayIndex);
         }
 
@@ -100,7 +100,7 @@ namespace Reefact.Hateoas.Hal {
         /// <returns>
         ///     An enumerator that can be used to iterate through the collection.
         /// </returns>
-        public IEnumerator<ILinkItem> GetEnumerator() {
+        public IEnumerator<LinkItem> GetEnumerator() {
             return items.GetEnumerator();
         }
 
@@ -114,7 +114,7 @@ namespace Reefact.Hateoas.Hal {
         ///     <see cref="T:System.Collections.Generic.ICollection`1" />; otherwise, false. This method also returns false if
         ///     <paramref name="item" /> is not found in the original <see cref="T:System.Collections.Generic.ICollection`1" />.
         /// </returns>
-        public bool Remove(ILinkItem item) {
+        public bool Remove(LinkItem item) {
             return items.Remove(item);
         }
 

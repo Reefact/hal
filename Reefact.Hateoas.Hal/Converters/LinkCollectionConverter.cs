@@ -57,7 +57,7 @@ namespace Reefact.Hateoas.Hal.Converters {
             LinkCollection linkCollection = (LinkCollection)value!;
             writer.WritePropertyName("_links");
             writer.WriteStartObject();
-            foreach (ILink? link in linkCollection) {
+            foreach (Link? link in linkCollection) {
                 serializer.Serialize(writer, link);
             }
             writer.WriteEndObject();

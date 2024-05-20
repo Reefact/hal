@@ -20,7 +20,7 @@ namespace Reefact.Hateoas.Hal.Builders {
         /// <param name="builder">The builder.</param>
         /// <param name="state">The object state.</param>
         /// <returns></returns>
-        public static IResourceStateBuilder WithState(this IResourceBuilder builder, object state) {
+        public static ResourceStateBuilder WithState(this ResourceBuilder builder, object state) {
             return new ResourceStateBuilder(builder, state);
         }
 
@@ -30,7 +30,7 @@ namespace Reefact.Hateoas.Hal.Builders {
         /// <param name="builder">The builder.</param>
         /// <param name="rel">The relation of the resource location.</param>
         /// <returns></returns>
-        public static ILinkBuilder AddLink(this IResourceStateBuilder builder, string rel) {
+        public static LinkBuilder AddLink(this ResourceStateBuilder builder, string rel) {
             return new LinkBuilder(builder, rel, false);
         }
 
@@ -39,7 +39,7 @@ namespace Reefact.Hateoas.Hal.Builders {
         /// </summary>
         /// <param name="builder">The builder.</param>
         /// <returns></returns>
-        public static ILinkBuilder AddSelfLink(this IResourceStateBuilder builder) {
+        public static LinkBuilder AddSelfLink(this ResourceStateBuilder builder) {
             return new LinkBuilder(builder, "self", false);
         }
 
@@ -48,7 +48,7 @@ namespace Reefact.Hateoas.Hal.Builders {
         /// </summary>
         /// <param name="builder">The builder.</param>
         /// <returns></returns>
-        public static ILinkBuilder AddCuriesLink(this IResourceStateBuilder builder) {
+        public static LinkBuilder AddCuriesLink(this ResourceStateBuilder builder) {
             return new LinkBuilder(builder, "curies", true);
         }
 
@@ -62,7 +62,7 @@ namespace Reefact.Hateoas.Hal.Builders {
         ///     should be always converted as an array even if there is only one state for that embedded resource.
         /// </param>
         /// <returns></returns>
-        public static IEmbeddedResourceBuilder AddEmbedded(this IResourceStateBuilder builder, string name, bool enforcingArrayConverting = false) {
+        public static IEmbeddedResourceBuilder AddEmbedded(this ResourceStateBuilder builder, string name, bool enforcingArrayConverting = false) {
             return new EmbeddedResourceBuilder(builder, name, enforcingArrayConverting);
         }
 
@@ -89,7 +89,7 @@ namespace Reefact.Hateoas.Hal.Builders {
         /// </param>
         /// <param name="additionalProperties">The additional properties.</param>
         /// <returns></returns>
-        public static ILinkItemBuilder WithLinkItem(this ILinkBuilder            linkBuilder,                 string  href,
+        public static LinkItemBuilder WithLinkItem(this LinkBuilder            linkBuilder,                 string  href,
                                                     string?                      name                 = null, bool?   templated = null, string? type  = null,
                                                     string?                      deprecation          = null, string? profile   = null, string? title = null,
                                                     string?                      hreflang             = null,
@@ -104,7 +104,7 @@ namespace Reefact.Hateoas.Hal.Builders {
         /// <param name="builder">The builder.</param>
         /// <param name="rel">The relation of the resource location.</param>
         /// <returns></returns>
-        public static ILinkBuilder AddLink(this ILinkItemBuilder builder, string rel) {
+        public static LinkBuilder AddLink(this LinkItemBuilder builder, string rel) {
             return new LinkBuilder(builder, rel, false);
         }
 
@@ -113,7 +113,7 @@ namespace Reefact.Hateoas.Hal.Builders {
         /// </summary>
         /// <param name="builder">The builder.</param>
         /// <returns></returns>
-        public static ILinkBuilder AddSelfLink(this ILinkItemBuilder builder) {
+        public static LinkBuilder AddSelfLink(this LinkItemBuilder builder) {
             return new LinkBuilder(builder, "self", false);
         }
 
@@ -122,7 +122,7 @@ namespace Reefact.Hateoas.Hal.Builders {
         /// </summary>
         /// <param name="builder">The builder.</param>
         /// <returns></returns>
-        public static ILinkBuilder AddCuriesLink(this ILinkItemBuilder builder) {
+        public static LinkBuilder AddCuriesLink(this LinkItemBuilder builder) {
             return new LinkBuilder(builder, "curies", true);
         }
 
@@ -149,7 +149,7 @@ namespace Reefact.Hateoas.Hal.Builders {
         /// </param>
         /// <param name="additionalProperties">The additional properties.</param>
         /// <returns></returns>
-        public static ILinkItemBuilder WithLinkItem(this ILinkItemBuilder        builder,                     string  href,
+        public static LinkItemBuilder WithLinkItem(this LinkItemBuilder        builder,                     string  href,
                                                     string?                      name                 = null, bool?   templated = null, string? type  = null,
                                                     string?                      deprecation          = null, string? profile   = null, string? title = null,
                                                     string?                      hreflang             = null,
@@ -168,7 +168,7 @@ namespace Reefact.Hateoas.Hal.Builders {
         ///     should be always converted as an array even if there is only one state for that embedded resource.
         /// </param>
         /// <returns></returns>
-        public static IEmbeddedResourceBuilder AddEmbedded(this ILinkItemBuilder builder, string name, bool enforcingArrayConverting = false) {
+        public static IEmbeddedResourceBuilder AddEmbedded(this LinkItemBuilder builder, string name, bool enforcingArrayConverting = false) {
             return new EmbeddedResourceBuilder(builder, name, enforcingArrayConverting);
         }
 
@@ -198,7 +198,7 @@ namespace Reefact.Hateoas.Hal.Builders {
         /// <param name="builder">The builder.</param>
         /// <param name="rel">The relation of the resource location.</param>
         /// <returns></returns>
-        public static ILinkBuilder AddLink(this IEmbeddedResourceItemBuilder builder, string rel) {
+        public static LinkBuilder AddLink(this IEmbeddedResourceItemBuilder builder, string rel) {
             return new LinkBuilder(builder, rel, false);
         }
 
@@ -207,7 +207,7 @@ namespace Reefact.Hateoas.Hal.Builders {
         /// </summary>
         /// <param name="builder">The builder.</param>
         /// <returns></returns>
-        public static ILinkBuilder AddSelfLink(this IEmbeddedResourceItemBuilder builder) {
+        public static LinkBuilder AddSelfLink(this IEmbeddedResourceItemBuilder builder) {
             return new LinkBuilder(builder, "self", false);
         }
 
@@ -216,7 +216,7 @@ namespace Reefact.Hateoas.Hal.Builders {
         /// </summary>
         /// <param name="builder">The builder.</param>
         /// <returns></returns>
-        public static ILinkBuilder AddCuriesLink(this IEmbeddedResourceItemBuilder builder) {
+        public static LinkBuilder AddCuriesLink(this IEmbeddedResourceItemBuilder builder) {
             return new LinkBuilder(builder, "curies", true);
         }
 

@@ -7,39 +7,11 @@ using System.Linq;
 namespace Reefact.Hateoas.Hal.Builders {
 
     /// <summary>
-    ///     Represents that the implemented classes are HAL resource builders
-    ///     that are responsible for adding the <see cref="ILink" /> instance
-    ///     to the HAL resource.
-    /// </summary>
-    /// <seealso cref="Hal.Builders.IBuilder" />
-    public interface ILinkBuilder : IBuilder {
-
-        /// <summary>
-        ///     Gets the relation of the resource location.
-        /// </summary>
-        /// <value>
-        ///     The relation of the resource location.
-        /// </value>
-        string Rel { get; }
-
-        /// <summary>
-        ///     Gets a value indicating whether the generated Json representation should be in an array
-        ///     format, even if the number of items is only one.
-        /// </summary>
-        /// <value>
-        ///     <c>true</c> if the generated Json representation should be in an array
-        ///     format; otherwise, <c>false</c>.
-        /// </value>
-        bool EnforcingArrayConverting { get; }
-
-    }
-
-    /// <summary>
-    ///     Represents an internal implementation of <see cref="ILinkBuilder" /> interface.
+    ///     Represents an internal implementation of <see cref="LinkBuilder" /> interface.
     /// </summary>
     /// <seealso cref="Hal.Builders.Builder" />
-    /// <seealso cref="Hal.Builders.ILinkBuilder" />
-    internal sealed class LinkBuilder : Builder, ILinkBuilder {
+    /// <seealso cref="Hal.Builders.LinkBuilder" />
+    public sealed class LinkBuilder : Builder {
 
         #region Constructors declarations
 
@@ -90,7 +62,7 @@ namespace Reefact.Hateoas.Hal.Builders {
                 resource.Links = new LinkCollection();
             }
 
-            ILink? link = resource.Links.FirstOrDefault(x => x.Rel.Equals(Rel));
+            Link? link = resource.Links.FirstOrDefault(x => x.Rel.Equals(Rel));
             if (link == null) {
                 resource.Links.Add(new Link(Rel));
             }

@@ -13,8 +13,7 @@ namespace Reefact.Hateoas.Hal {
     /// <summary>
     ///     Represents a resource in HAL.
     /// </summary>
-    /// <seealso cref="Hal.IResource" />
-    public sealed class Resource : IResource {
+    public sealed class Resource {
 
         #region Statics members declarations
 
